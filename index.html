@@ -187,8 +187,17 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
             margin-bottom: 20px;
+        }
+
+        .agent-icon svg {
+            width: 36px;
+            height: 36px;
+            fill: none;
+            stroke: var(--white);
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         .agent-card h3 {
@@ -218,9 +227,13 @@
         }
 
         .agent-features li::before {
-            content: '✓';
-            color: var(--success);
-            font-weight: 700;
+            content: '';
+            width: 16px;
+            height: 16px;
+            background: var(--success);
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+            flex-shrink: 0;
         }
 
         /* Benefits Section */
@@ -341,9 +354,13 @@
         }
 
         .pricing-card li::before {
-            content: '✓';
-            color: var(--success);
-            font-weight: 700;
+            content: '';
+            width: 16px;
+            height: 16px;
+            background: var(--success);
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+            flex-shrink: 0;
         }
 
         /* Process Section */
@@ -473,7 +490,11 @@
             
             <div class="agents-grid">
                 <div class="agent-card">
-                    <div class="agent-icon">💬</div>
+                    <div class="agent-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                    </div>
                     <h3>Agente de FAQ</h3>
                     <p>Responde automaticamente as dúvidas mais frequentes dos seus clientes, 
                        24 horas por dia, 7 dias por semana.</p>
@@ -486,7 +507,12 @@
                 </div>
 
                 <div class="agent-card">
-                    <div class="agent-icon">🎧</div>
+                    <div class="agent-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                            <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+                        </svg>
+                    </div>
                     <h3>Agente de Suporte</h3>
                     <p>Resolve problemas técnicos, acompanha pedidos e escala casos 
                        complexos para sua equipe humana.</p>
@@ -499,7 +525,12 @@
                 </div>
 
                 <div class="agent-card">
-                    <div class="agent-icon">💰</div>
+                    <div class="agent-icon">
+                        <svg viewBox="0 0 24 24">
+                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                    </div>
                     <h3>Agente de Vendas</h3>
                     <p>Qualifica leads, apresenta produtos e agenda reuniões 
                        automaticamente. Seu vendedor que nunca dorme.</p>
@@ -512,7 +543,14 @@
                 </div>
 
                 <div class="agent-card">
-                    <div class="agent-icon">📅</div>
+                    <div class="agent-icon">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                    </div>
                     <h3>Agente de Agendamento</h3>
                     <p>Gerencia sua agenda, confirma compromissos e reagenda 
                        automaticamente em caso de cancelamento.</p>
@@ -525,7 +563,13 @@
                 </div>
 
                 <div class="agent-card">
-                    <div class="agent-icon">📊</div>
+                    <div class="agent-icon">
+                        <svg viewBox="0 0 24 24">
+                            <line x1="18" y1="20" x2="18" y2="10"></line>
+                            <line x1="12" y1="20" x2="12" y2="4"></line>
+                            <line x1="6" y1="20" x2="6" y2="14"></line>
+                        </svg>
+                    </div>
                     <h3>Agente de Relatórios</h3>
                     <p>Coleta dados de todas as interações e gera insights 
                        automaticamente para sua tomada de decisão.</p>
@@ -538,7 +582,13 @@
                 </div>
 
                 <div class="agent-card">
-                    <div class="agent-icon">🔄</div>
+                    <div class="agent-icon">
+                        <svg viewBox="0 0 24 24">
+                            <polyline points="23 4 23 10 17 10"></polyline>
+                            <polyline points="1 20 1 14 7 14"></polyline>
+                            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                        </svg>
+                    </div>
                     <h3>Agente de Retenção</h3>
                     <p>Identifica clientes em risco de churn e executa ações 
                        proativas para mantê-los engajados.</p>
