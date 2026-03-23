@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS DIGITAL - Motion Proposal</title>
+    <title>NEXUS DIGITAL - Agentes de IA para Negócios</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -86,11 +86,22 @@
             margin-top: 10px;
         }
 
-        .hero p {
-            font-size: 20px;
+        .hero .tagline {
+            font-size: 24px;
             color: var(--white);
-            opacity: 0.8;
+            opacity: 0.9;
             margin-top: 30px;
+            font-weight: 500;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--white);
+            opacity: 0.7;
+            margin-top: 15px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         @keyframes pulse {
@@ -108,7 +119,7 @@
             font-size: 36px;
             font-weight: 700;
             color: var(--white);
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
             gap: 15px;
@@ -122,112 +133,135 @@
             border-radius: 2px;
         }
 
-        /* Color Palette */
-        .colors {
+        section > p {
+            color: rgba(255,255,255,0.7);
+            font-size: 18px;
+            margin-bottom: 40px;
+            max-width: 800px;
+        }
+
+        /* Agents Grid */
+        .agents-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-        }
-
-        .color-card {
-            padding: 30px;
-            border-radius: 16px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .color-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .color-card .swatch {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            border: 3px solid rgba(255,255,255,0.1);
-        }
-
-        .color-card .name {
-            font-weight: 700;
-            font-size: 14px;
-            margin-bottom: 5px;
-        }
-
-        .color-card .hex {
-            font-family: monospace;
-            font-size: 14px;
-            opacity: 0.7;
-        }
-
-        /* Storyboard */
-        .storyboard {
-            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
 
-        .scene {
+        .agent-card {
             background: var(--background-alt);
             border-radius: 20px;
             padding: 40px;
             border: 1px solid rgba(0, 102, 255, 0.2);
-            transition: border-color 0.3s, box-shadow 0.3s;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
         }
 
-        .scene:hover {
+        .agent-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--cyan));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .agent-card:hover {
             border-color: var(--primary);
             box-shadow: 0 0 40px rgba(0, 102, 255, 0.2);
+            transform: translateY(-5px);
         }
 
-        .scene-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 20px;
+        .agent-card:hover::before {
+            opacity: 1;
         }
 
-        .scene-number {
-            width: 50px;
-            height: 50px;
+        .agent-icon {
+            width: 70px;
+            height: 70px;
             background: linear-gradient(135deg, var(--primary), var(--cyan));
-            border-radius: 12px;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 900;
-            font-size: 20px;
+            font-size: 32px;
+            margin-bottom: 20px;
         }
 
-        .scene-title {
+        .agent-card h3 {
             font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .agent-card p {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .agent-features {
+            list-style: none;
+        }
+
+        .agent-features li {
+            padding: 8px 0;
+            color: rgba(255,255,255,0.8);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .agent-features li::before {
+            content: '✓';
+            color: var(--success);
             font-weight: 700;
         }
 
-        .scene-time {
-            font-size: 14px;
-            color: var(--cyan);
-            font-family: monospace;
+        /* Benefits Section */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
         }
 
-        .scene-description {
-            color: rgba(255,255,255,0.8);
-            line-height: 1.8;
+        .benefit-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: var(--background-alt);
+            border-radius: 20px;
+            border: 1px solid rgba(0, 102, 255, 0.1);
         }
 
-        .scene-effects {
-            margin-top: 20px;
-            padding: 20px;
-            background: rgba(0,0,0,0.3);
-            border-radius: 12px;
-            font-family: monospace;
+        .benefit-number {
+            font-size: 60px;
+            font-weight: 900;
+            color: var(--primary);
+            text-shadow: 0 0 30px var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .benefit-label {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+
+        .benefit-desc {
             font-size: 14px;
-            color: var(--cyan);
+            color: rgba(255,255,255,0.6);
         }
 
         /* Pricing */
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
@@ -264,6 +298,12 @@
         .pricing-card h3 {
             font-size: 24px;
             font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .pricing-card .subtitle {
+            font-size: 14px;
+            color: var(--cyan);
             margin-bottom: 20px;
         }
 
@@ -277,11 +317,18 @@
         .pricing-card .period {
             font-size: 16px;
             opacity: 0.7;
+            margin-bottom: 10px;
+        }
+
+        .pricing-card .setup {
+            font-size: 14px;
+            color: var(--cyan);
+            margin-bottom: 20px;
         }
 
         .pricing-card ul {
             list-style: none;
-            margin-top: 30px;
+            margin-top: 20px;
             text-align: left;
         }
 
@@ -297,6 +344,43 @@
             content: '✓';
             color: var(--success);
             font-weight: 700;
+        }
+
+        /* Process Section */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 30px;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--cyan));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 900;
+            margin: 0 auto 20px;
+        }
+
+        .process-step h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .process-step p {
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
         }
 
         /* CTA */
@@ -315,9 +399,15 @@
             display: none;
         }
 
+        .cta p {
+            font-size: 20px;
+            opacity: 0.8;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
         .cta-button {
             display: inline-block;
-            margin-top: 40px;
             padding: 25px 50px;
             font-size: 20px;
             font-weight: 700;
@@ -354,6 +444,10 @@
             .pricing-card.featured {
                 transform: scale(1);
             }
+            
+            .hero h2 {
+                letter-spacing: 5px;
+            }
         }
     </style>
 </head>
@@ -366,193 +460,201 @@
         <header class="hero">
             <h1>NEXUS</h1>
             <h2>DIGITAL</h2>
-            <p>AUTOMAÇÃO INTELIGENTE COM IA</p>
+            <p class="tagline">Agentes de IA Que Trabalham 24/7</p>
+            <p>Automatize seu atendimento, vendas e suporte com inteligência artificial. 
+               Seus clientes atendidos em segundos, não em horas.</p>
         </header>
 
-        <!-- Colors -->
+        <!-- AI Agents -->
         <section>
-            <h2>Paleta de Cores</h2>
-            <div class="colors">
-                <div class="color-card">
-                    <div class="swatch" style="background: #0066FF; box-shadow: 0 0 30px #0066FF;"></div>
-                    <div class="name">Electric Blue</div>
-                    <div class="hex">#0066FF</div>
+            <h2>Nossos Agentes de IA</h2>
+            <p>Cada agente é treinado especificamente para sua área de negócio, 
+               respondendo como um especialista real.</p>
+            
+            <div class="agents-grid">
+                <div class="agent-card">
+                    <div class="agent-icon">💬</div>
+                    <h3>Agente de FAQ</h3>
+                    <p>Responde automaticamente as dúvidas mais frequentes dos seus clientes, 
+                       24 horas por dia, 7 dias por semana.</p>
+                    <ul class="agent-features">
+                        <li>Respostas instantâneas</li>
+                        <li>Aprende com cada interação</li>
+                        <li>Integra com WhatsApp, Instagram, Site</li>
+                        <li>Reduz 80% do volume de atendimento</li>
+                    </ul>
                 </div>
-                <div class="color-card">
-                    <div class="swatch" style="background: #00D4FF; box-shadow: 0 0 30px #00D4FF;"></div>
-                    <div class="name">Cyan</div>
-                    <div class="hex">#00D4FF</div>
+
+                <div class="agent-card">
+                    <div class="agent-icon">🎧</div>
+                    <h3>Agente de Suporte</h3>
+                    <p>Resolve problemas técnicos, acompanha pedidos e escala casos 
+                       complexos para sua equipe humana.</p>
+                    <ul class="agent-features">
+                        <li>Triagem inteligente de tickets</li>
+                        <li>Integração com seu CRM</li>
+                        <li>Histórico completo do cliente</li>
+                        <li>Escalamento automático</li>
+                    </ul>
                 </div>
-                <div class="color-card">
-                    <div class="swatch" style="background: #050508; border: 2px solid #0A1628;"></div>
-                    <div class="name">Deep Black</div>
-                    <div class="hex">#050508</div>
+
+                <div class="agent-card">
+                    <div class="agent-icon">💰</div>
+                    <h3>Agente de Vendas</h3>
+                    <p>Qualifica leads, apresenta produtos e agenda reuniões 
+                       automaticamente. Seu vendedor que nunca dorme.</p>
+                    <ul class="agent-features">
+                        <li>Qualificação de leads 24/7</li>
+                        <li>Follow-up automático</li>
+                        <li>Integração com calendário</li>
+                        <li>Relatórios de conversão</li>
+                    </ul>
                 </div>
-                <div class="color-card">
-                    <div class="swatch" style="background: #00FF88; box-shadow: 0 0 30px #00FF88;"></div>
-                    <div class="name">Success</div>
-                    <div class="hex">#00FF88</div>
+
+                <div class="agent-card">
+                    <div class="agent-icon">📅</div>
+                    <h3>Agente de Agendamento</h3>
+                    <p>Gerencia sua agenda, confirma compromissos e reagenda 
+                       automaticamente em caso de cancelamento.</p>
+                    <ul class="agent-features">
+                        <li>Sincroniza com Google Calendar</li>
+                        <li>Confirmação automática</li>
+                        <li>Lembretes inteligentes</li>
+                        <li>Gestão de fila de espera</li>
+                    </ul>
                 </div>
-                <div class="color-card">
-                    <div class="swatch" style="background: #FF3333; box-shadow: 0 0 30px #FF3333;"></div>
-                    <div class="name">Warning</div>
-                    <div class="hex">#FF3333</div>
+
+                <div class="agent-card">
+                    <div class="agent-icon">📊</div>
+                    <h3>Agente de Relatórios</h3>
+                    <p>Coleta dados de todas as interações e gera insights 
+                       automaticamente para sua tomada de decisão.</p>
+                    <ul class="agent-features">
+                        <li>Dashboards em tempo real</li>
+                        <li>Relatórios semanais automáticos</li>
+                        <li>Análise de sentimento</li>
+                        <li>Previsões de demanda</li>
+                    </ul>
+                </div>
+
+                <div class="agent-card">
+                    <div class="agent-icon">🔄</div>
+                    <h3>Agente de Retenção</h3>
+                    <p>Identifica clientes em risco de churn e executa ações 
+                       proativas para mantê-los engajados.</p>
+                    <ul class="agent-features">
+                        <li>Detecção de churn</li>
+                        <li>Campanhas personalizadas</li>
+                        <li>Ofertas de retenção</li>
+                        <li>Feedback automatizado</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- Storyboard -->
+        <!-- Benefits -->
         <section>
-            <h2>Storyboard (20 segundos)</h2>
-            <div class="storyboard">
-                <div class="scene">
-                    <div class="scene-header">
-                        <div class="scene-number">1</div>
-                        <div>
-                            <div class="scene-title">HOOK</div>
-                            <div class="scene-time">0:00 - 0:03</div>
-                        </div>
-                    </div>
-                    <p class="scene-description">
-                        Tela preta com circuit traces sutis. Texto "AINDA FAZ TUDO MANUAL?" 
-                        aparece com SLAM animation — scale 200% → 100% com bounce elástico. 
-                        Screen shake de 8px + white flash de 100ms no impacto.
-                    </p>
-                    <div class="scene-effects">
-                        Effects: slam_text, screen_shake, white_flash, ambient_particles
-                    </div>
+            <h2>Resultados Comprovados</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-number">80%</div>
+                    <div class="benefit-label">Menos Trabalho Manual</div>
+                    <div class="benefit-desc">Sua equipe foca no que importa</div>
                 </div>
-
-                <div class="scene">
-                    <div class="scene-header">
-                        <div class="scene-number">2</div>
-                        <div>
-                            <div class="scene-title">PROBLEMA</div>
-                            <div class="scene-time">0:03 - 0:06</div>
-                        </div>
-                    </div>
-                    <p class="scene-description">
-                        Ícones caóticos flutuando (📧📊⏰💸) representando trabalho manual. 
-                        Todos em cinza desbotado, rotacionando e colidindo. Pulse vermelho 
-                        nas bordas (#FF3333). Texto: "HORAS PERDIDAS. DINHEIRO JOGADO FORA."
-                    </p>
-                    <div class="scene-effects">
-                        Effects: floating_icons, chaos_rotation, warning_pulse, tension_build
-                    </div>
+                <div class="benefit-card">
+                    <div class="benefit-number">24/7</div>
+                    <div class="benefit-label">Atendimento Contínuo</div>
+                    <div class="benefit-desc">Nunca perca um lead</div>
                 </div>
-
-                <div class="scene">
-                    <div class="scene-header">
-                        <div class="scene-number">3</div>
-                        <div>
-                            <div class="scene-title">SOLUÇÃO</div>
-                            <div class="scene-time">0:06 - 0:10</div>
-                        </div>
-                    </div>
-                    <p class="scene-description">
-                        Radial wipe do centro. 200 partículas convergem formando o logo NEXUS. 
-                        Explosão de energia azul (#0066FF) com shockwave ripple. 
-                        Logo pulsa com glow intenso. Subtitle: "AUTOMAÇÃO INTELIGENTE COM IA"
-                    </p>
-                    <div class="scene-effects">
-                        Effects: particle_converge, logo_materialize, shockwave, glow_pulse
-                    </div>
+                <div class="benefit-card">
+                    <div class="benefit-number">3x</div>
+                    <div class="benefit-label">Mais Conversões</div>
+                    <div class="benefit-desc">Resposta em segundos, não horas</div>
                 </div>
-
-                <div class="scene">
-                    <div class="scene-header">
-                        <div class="scene-number">4</div>
-                        <div>
-                            <div class="scene-title">BENEFÍCIOS</div>
-                            <div class="scene-time">0:10 - 0:14</div>
-                        </div>
-                    </div>
-                    <p class="scene-description">
-                        Três cards aparecem sequencialmente com slide-in da direita:
-                        <br>🤖 AGENTES 24/7 → Counter: 0 → 19
-                        <br>⚡ TRABALHO MANUAL → Progress: 0% → -80%
-                        <br>📈 RESULTADOS → Counter: 1X → 3X
-                    </p>
-                    <div class="scene-effects">
-                        Effects: slide_in_right, counter_animation, progress_bar, sequential_reveal
-                    </div>
+                <div class="benefit-card">
+                    <div class="benefit-number">&lt;5s</div>
+                    <div class="benefit-label">Tempo de Resposta</div>
+                    <div class="benefit-desc">Clientes não esperam</div>
                 </div>
+            </div>
+        </section>
 
-                <div class="scene">
-                    <div class="scene-header">
-                        <div class="scene-number">5</div>
-                        <div>
-                            <div class="scene-title">PREÇOS</div>
-                            <div class="scene-time">0:14 - 0:17</div>
-                        </div>
-                    </div>
-                    <p class="scene-description">
-                        Três cards de pricing com glass morphism aparecem em stack.
-                        PROFESSIONAL destacado com borda #0066FF pulsante.
-                        Preços animam com typewriter effect + sparkle no "MAIS POPULAR".
-                    </p>
-                    <div class="scene-effects">
-                        Effects: glass_morphism, parallax_stack, typewriter_price, sparkle_highlight
-                    </div>
+        <!-- Process -->
+        <section>
+            <h2>Como Funciona</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Análise</h3>
+                    <p>Mapeamos seus processos e identificamos onde a IA pode atuar</p>
                 </div>
-
-                <div class="scene">
-                    <div class="scene-header">
-                        <div class="scene-number">6</div>
-                        <div>
-                            <div class="scene-title">CTA FINALE</div>
-                            <div class="scene-time">0:17 - 0:20</div>
-                        </div>
-                    </div>
-                    <p class="scene-description">
-                        Todos elementos convergem ao centro. Logo NEXUS pulsa com energia.
-                        Texto "AUTOMATIZE SEU NEGÓCIO AGORA" com SLAM.
-                        Botão CTA aparece com glow máximo + particle burst ao redor.
-                    </p>
-                    <div class="scene-effects">
-                        Effects: converge_center, logo_pulse, slam_text, cta_glow, particle_burst
-                    </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Configuração</h3>
+                    <p>Treinamos os agentes com sua base de conhecimento</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Integração</h3>
+                    <p>Conectamos com WhatsApp, Instagram, site e CRM</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Otimização</h3>
+                    <p>Monitoramos e melhoramos continuamente</p>
                 </div>
             </div>
         </section>
 
         <!-- Pricing -->
         <section>
-            <h2>Planos (Fictional)</h2>
+            <h2>Planos</h2>
             <div class="pricing-grid">
                 <div class="pricing-card">
                     <h3>STARTER</h3>
+                    <div class="subtitle">Para começar a automatizar</div>
                     <div class="price">R$1.497</div>
                     <div class="period">/mês</div>
+                    <div class="setup">+ R$997 setup único</div>
                     <ul>
-                        <li>1 AI Agent configurado</li>
-                        <li>Automação WhatsApp</li>
-                        <li>Dashboard básico</li>
+                        <li>1 Agente de IA</li>
+                        <li>1 Canal (WhatsApp OU Instagram)</li>
+                        <li>500 conversas/mês</li>
                         <li>Suporte por email</li>
+                        <li>Relatório mensal</li>
                     </ul>
                 </div>
                 <div class="pricing-card featured">
                     <h3>PROFESSIONAL</h3>
+                    <div class="subtitle">Para escalar seu negócio</div>
                     <div class="price">R$2.997</div>
                     <div class="period">/mês</div>
+                    <div class="setup">+ R$1.997 setup único</div>
                     <ul>
-                        <li>5 AI Agents configurados</li>
-                        <li>Automação multi-canal</li>
-                        <li>Analytics avançado</li>
+                        <li>3 Agentes de IA</li>
+                        <li>Multi-canal (WhatsApp + Instagram + Site)</li>
+                        <li>2.000 conversas/mês</li>
                         <li>Suporte prioritário</li>
-                        <li>Calls semanais</li>
+                        <li>Integração CRM</li>
+                        <li>Relatórios semanais</li>
+                        <li>Call mensal de estratégia</li>
                     </ul>
                 </div>
                 <div class="pricing-card">
                     <h3>ENTERPRISE</h3>
+                    <div class="subtitle">Solução completa</div>
                     <div class="price">R$5.997</div>
                     <div class="period">/mês</div>
+                    <div class="setup">Setup customizado</div>
                     <ul>
-                        <li>Agents ilimitados</li>
-                        <li>Integrações custom</li>
-                        <li>Success manager</li>
+                        <li>Agentes ilimitados</li>
+                        <li>Todos os canais</li>
+                        <li>Conversas ilimitadas</li>
                         <li>Suporte 24/7</li>
-                        <li>White-label</li>
+                        <li>Integrações customizadas</li>
+                        <li>Gerente de sucesso dedicado</li>
+                        <li>Treinamento da equipe</li>
+                        <li>SLA garantido</li>
                     </ul>
                 </div>
             </div>
@@ -560,14 +662,15 @@
 
         <!-- CTA -->
         <section class="cta">
-            <h2>AUTOMATIZE SEU NEGÓCIO</h2>
+            <h2>Pronto Para Automatizar?</h2>
+            <p>Agende uma demonstração gratuita e veja os agentes em ação</p>
             <a href="#" class="cta-button">AGENDAR DEMO GRÁTIS →</a>
         </section>
 
         <!-- Footer -->
         <footer>
-            <p>NEXUS DIGITAL - Motion Graphics Proposal</p>
-            <p>Concept by Enzo Vaccaro | 2026</p>
+            <p>NEXUS DIGITAL - Agentes de IA para Negócios</p>
+            <p>© 2026 - Todos os direitos reservados</p>
         </footer>
     </div>
 
